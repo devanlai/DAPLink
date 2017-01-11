@@ -1715,7 +1715,7 @@ const U8 USBD_WinUSBDescriptorSetDescriptor[] = {
     'G',0,'U',0,'I',0,'D',0,'s',0,0,0,
     WBVAL(80), /* wPropertyDataLength */
     '{',0,
-    '9',0,'2',0,'C',0,'E',0,'6',0,'4',0,'6',0,'2',0,'-',0,
+    '9',0,'3',0,'C',0,'E',0,'6',0,'4',0,'6',0,'2',0,'-',0,
     '9',0,'C',0,'7',0,'7',0,'-',0,
     '4',0,'6',0,'F',0,'E',0,'-',0,
     '9',0,'3',0,'3',0,'B',0,'-',
@@ -2205,6 +2205,10 @@ const U8 USBD_ConfigDescriptor[] = {
     ADC_EP
 #endif
 
+#if (USBD_DFU_ENABLE)
+    DFU_DESC
+#endif
+
 #if (USBD_MSC_ENABLE)
     MSC_DESC
     MSC_EP
@@ -2227,10 +2231,6 @@ const U8 USBD_ConfigDescriptor[] = {
 #else
     HID_EP
 #endif
-#endif
-
-#if (USBD_DFU_ENABLE)
-    DFU_DESC
 #endif
 
     /* Terminator */                                                                                            \
