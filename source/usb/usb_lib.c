@@ -1682,7 +1682,8 @@ const U8 USBD_DeviceQualifier_HS[] = { 0 };
 
 #if (USBD_WINUSB_ENABLE)
 
-#define USBD_WINUSB_DESC_SET_LEN           170
+#define USBD_WINUSB_DESC_SET_LEN           178
+#define CONFIG_SUBSET_LEN                  168
 #define FUNCTION_SUBSET_LEN                160
 #define DEVICE_INTERFACE_GUIDS_FEATURE_LEN 132
 
@@ -1691,6 +1692,11 @@ const U8 USBD_WinUSBDescriptorSetDescriptor[] = {
     WBVAL(WINUSB_SET_HEADER_DESCRIPTOR_TYPE), /* wDescriptorType */
     0x00, 0x00, 0x03, 0x06, /* >= Win 8.1 */  /* dwWindowsVersion*/
     WBVAL(USBD_WINUSB_DESC_SET_LEN),          /* wDescriptorSetTotalLength */
+    WBVAL(WINUSB_CONFIGURATION_SUBSET_HEADER_SIZE), /* wLength */
+    WBVAL(WINUSB_SUBSET_HEADER_CONFIGURATION_TYPE), /* wDescriptorType */
+    0,                                        /* bConfigurationIndex */
+    0,                                        /* bReserved */
+    WBVAL(CONFIG_SUBSET_LEN),                 /* wTotalLength */
     WBVAL(WINUSB_FUNCTION_SUBSET_HEADER_SIZE),/* wLength */
     WBVAL(WINUSB_SUBSET_HEADER_FUNCTION_TYPE),/* wDescriptorType */
     USBD_WINUSB_IF_NUM,                       /* bFirstInterface */

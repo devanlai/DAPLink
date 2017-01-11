@@ -63,6 +63,7 @@ typedef __packed struct _WINUSB_DESCRIPTOR_SET_HEADER {
 
 /* WinUSB Microsoft OS 2.0 descriptor sizes */
 #define WINUSB_DESCRIPTOR_SET_HEADER_SIZE          10
+#define WINUSB_CONFIGURATION_SUBSET_HEADER_SIZE    8
 #define WINUSB_FUNCTION_SUBSET_HEADER_SIZE         8
 #define WINUSB_FEATURE_COMPATIBLE_ID_SIZE          20
 #endif // __USB_WINUSB_H__
