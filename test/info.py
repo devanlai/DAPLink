@@ -33,7 +33,7 @@ PROJECT_RELEASE_INFO = {
     ("lpc11u35_ssci1114_if",                        False,      0x0000,     "bin"       ),
     ("sam3u2c_mkit_dk_dongle_nrf5x_if",             True,       0x5000,     "bin"       ),
     ("k20dx_frdmk20dx_if",                          True,       0x8000,     "bin"       ),
-    ("k20dx_frdmkw24f_if",                          True,       0x8000,     "bin"       ),
+    ("k20dx_frdmkw24d_if",                          True,       0x8000,     "bin"       ),
     ("k20dx_frdmkl02z_if",                          True,       0x8000,     "bin"       ),
     ("k20dx_frdmkl05z_if",                          True,       0x8000,     "bin"       ),
     ("k20dx_frdmkl25z_if",                          True,       0x8000,     "bin"       ),
@@ -57,7 +57,7 @@ PROJECT_RELEASE_INFO = {
     ("k20dx_rblnano_if",                            True,       0x5000,     "bin"       ),
     ("lpc11u35_archlink_if",                        False,      0x0000,     "bin"       ),
     ("lpc11u35_tiny_if",                            False,      0x0000,     "bin"       ),
-    #("lpc11u35_c027_if",                           False,      0x0000,     "bin"       ),  # Unsupported currently
+    ("lpc11u35_c027_if",                            False,      0x0000,     "bin"       ),
     ("kl26z_nina_b1_if",                            False,      0x8000,     "bin"       ),
     ("lpc11u35_lpc4088dm_if",                       False,      0x0000,     "bin"       ),
     ("lpc11u35_lpc4088qsb_if",                      False,      0x0000,     "bin"       ),
@@ -67,6 +67,10 @@ PROJECT_RELEASE_INFO = {
     ('lpc11u35_6lowpan_borderrouterusb_if',         None,       0x0000,     "bin"       ),
     ('lpc11u35_6lowpan_borderrouterethernet_if',    None,       0x0000,     "bin"       ),
     ('lpc11u35_gr_peach_if',                        None,       0x0000,     "bin"       ),
+    ('lpc11u35_nz32_sc151_if',                      False,      0x0000,     "bin"       ),
+    ('lpc11u35_wizwiki_w7500_if',                   False,      0x0000,     "bin"       ),
+    ('lpc11u35_wizwiki_w7500_eco_if',               False,      0x0000,     "bin"       ),
+    ('lpc11u35_wizwiki_w7500p_if',                  False,      0x0000,     "bin"       ),    
 }
 
 # All supported configurations
@@ -89,7 +93,7 @@ SUPPORTED_CONFIGURATIONS = [
     (   0x260,      'k20dx_frdmkl26z_if',                       'k20dx_bl',         None                                    ),
     (   0x261,      'k20dx_frdmkl27z_if',                       'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-KL27Z' when mbed-os supports this
     (   0x262,      'k20dx_frdmkl43z_if',                       'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-KL43Z' when mbed-os supports this
-    (   0x250,      'k20dx_frdmkw24f_if',                       'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-KW24F' when mbed-os supports this
+    (   0x250,      'k20dx_frdmkw24d_if',                       'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-KW24D' when mbed-os supports this
     (   0x218,      'k20dx_frdmkl82z_if',                       'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-KL82Z' when mbed-os supports this
     (   0x311,      'k20dx_frdmk66f_if',                        'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-K66F' when mbed-os supports this
     (   0x350,      'k20dx_xdot_l151_if',                       'k20dx_bl',         None                                    ), # TODO - set target to 'MTS-xDot-L151CC' when mbed-os supports this
@@ -109,6 +113,7 @@ SUPPORTED_CONFIGURATIONS = [
     (   0x1114,     'lpc11u35_ssci1114_if',                     None,               'LPC1114FN28'                           ),
     (   0x1120,     'sam3u2c_mkit_dk_dongle_nrf5x_if',          'sam3u2c_bl',       'Nordic-nRF51-Dongle'                   ),
     (   0x1234,     'lpc11u35_c027_if',                         None,               'u-blox-C027'                           ),
+    (   0x1200,     'sam3u2c_ncs36510rf_if',                   'sam3u2c_bl',        'ncs36510'                              ),
     (   0x1238,     'kl26z_nina_b1_if',                        'kl26z_bl',          None                                    ), # TODO - set target to 'UBLOX_EVA_NINA' when mbed-os supports this
     (   0x5050,     'lpc11u35_arm_watch_stm32f411_if',          None,               None                                    ),
     (   0x5051,     'lpc11u35_arm_watch_efm32_if',              None,               None                                    ),
@@ -125,6 +130,10 @@ SUPPORTED_CONFIGURATIONS = [
     (   0x7404,     'lpc11u35_6lowpan_borderrouterethernet_if', None,               'mbed-6LoWPAN-Border-Router-ETHERNET'   ),
     (   0xC000,     'lpc11u35_cocorico_if',                     None,               None                                    ), # TODO - set target to 'CoCo-ri-Co' when mbed-os supports this
     (   0x5500,     'lpc11u35_gr_peach_if',                     None,               'Renesas-GR-PEACH'                      ),
+    (   0x6660,     'lpc11u35_nz32_sc151_if',                   None,               'NZ32-SC151'                            ),
+    (   0x2201,     'lpc11u35_wizwiki_w7500_if',                None,               'WIZWIKI_W7500'                         ),
+    (   0x2202,     'lpc11u35_wizwiki_w7500_eco_if',            None,               'WIZWIKI_W7500ECO'                      ),
+    (   0x2203,     'lpc11u35_wizwiki_w7500p_if',               None,               'WIZWIKI_W7500P'                        ),
 ]
 
 # Add new HICs here

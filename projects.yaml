@@ -77,22 +77,6 @@ projects:
         - *module_bl
         - *module_hic_sam3u2c
         - records/board/sam3u2c_bl.yaml
-    stm32f103xb_bl:
-        - *module_bl
-        - *module_hic_stm32f103xb
-        - records/board/stm32f103xb_bl.yaml
-    stm32f103xb_nucleo_bl:
-        - *module_bl
-        - *module_hic_stlink_v2_1
-        - records/board/stm32f103xb_bl.yaml
-    stm32f103xb_stlink_v2_bl:
-        - *module_bl
-        - *module_hic_stlink_v2
-        - records/board/stm32f103xb_bl.yaml
-    stm32f103xb_stlink_v2_dongle_bl:
-        - *module_bl
-        - *module_hic_stlink_v2_dongle
-        - records/board/stlink_v2_dongle_bl.yaml
     sam3u2c_mkit_dk_dongle_nrf5x_if:
         - *module_if
         - *module_hic_sam3u2c
@@ -113,10 +97,10 @@ projects:
         - *module_if
         - *module_hic_k20dx
         - records/board/frdmk22f.yaml
-    k20dx_frdmkw24f_if:
+    k20dx_frdmkw24d_if:
         - *module_if
         - *module_hic_k20dx
-        - records/board/frdmkw24f.yaml
+        - records/board/frdmkw24d.yaml
     k20dx_frdmk64f_if:
         - *module_if
         - *module_hic_k20dx
@@ -293,6 +277,26 @@ projects:
         - *module_if
         - *module_hic_lpc11u35
         - records/board/blueninja.yaml
+    lpc11u35_nz32_sc151_if:
+        - *module_if
+        - *module_hic_lpc11u35
+        - records/board/nz32_sc151.yaml
+    lpc11u35_wizwiki_w7500_if:
+        - *module_if
+        - *module_hic_lpc11u35
+        - records/board/wizwiki_w7500.yaml
+    lpc11u35_wizwiki_w7500_eco_if:
+        - *module_if
+        - *module_hic_lpc11u35
+        - records/board/wizwiki_w7500_eco.yaml
+    lpc11u35_wizwiki_w7500p_if:
+        - *module_if
+        - *module_hic_lpc11u35
+        - records/board/wizwiki_w7500p.yaml
+    sam3u2c_ncs36510rf_if:
+        - *module_if
+        - *module_hic_sam3u2c
+        - records/board/ncs36510rf.yaml        
     stm32f103xb_rblnano_if:
         - *module_if
         - *module_hic_stm32f103xb

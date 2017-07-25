@@ -31,10 +31,6 @@
 void read_unique_id(uint32_t *id);
 void create_unique_id(void);
 
-#ifdef BOARD_UBLOX_C027
-void __svc(2) enter_isp(void);
-#endif
-
 #ifdef __cplusplus
 }
 #endif

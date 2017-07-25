@@ -1,6 +1,6 @@
 /**
- * @file    frdmkw24f.c
- * @brief   board ID for the NXP FRDM-KW24F board
+ * @file    wizwiki_w7500_eco.c
+ * @brief   board ID for the WIZnet WIZwiki-W7500ECO board
  *
  * DAPLink Interface Firmware
  * Copyright (c) 2009-2016, ARM Limited, All Rights Reserved
@@ -19,5 +19,4 @@
  * limitations under the License.
  */
 
-const char *board_id = "0250";
-
+const char *board_id = "2202";

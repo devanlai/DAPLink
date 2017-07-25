@@ -279,6 +279,12 @@ int32_t uart_read_data(uint8_t *data, uint16_t size)
     return circ_buf_read(&read_buffer, data, size);
 }
 
+void uart_enable_flow_control(bool enabled)
+{
+    // Flow control not implemented for this platform
+}
+
+
 void CDC_UART_IRQn_Handler(void)
 {
     if(USART_GetITStatus(CDC_UART, USART_IT_ERR) != RESET){
@@ -293,10 +299,16 @@ void CDC_UART_IRQn_Handler(void)
 
         if (free > RX_OVRF_MSG_SIZE) {
             circ_buf_push(&read_buffer, data);
-        } else if ((RX_OVRF_MSG_SIZE == free) && config_get_overflow_detect()) {
-            circ_buf_write(&read_buffer, (uint8_t*)RX_OVRF_MSG, RX_OVRF_MSG_SIZE);
-        } else {
-            // Drop character
+        } else if (config_get_overflow_detect()) {
+            if (RX_OVRF_MSG_SIZE == free) {
+                circ_buf_write(&read_buffer, (uint8_t*)RX_OVRF_MSG, RX_OVRF_MSG_SIZE);
+            } else {
+                // Drop newest
+            }
+         } else {
+            // Drop oldest
+            circ_buf_pop(&read_buffer);
+            circ_buf_push(&read_buffer, data);
         }
     }
 

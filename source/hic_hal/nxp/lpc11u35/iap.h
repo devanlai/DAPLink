@@ -1,9 +1,9 @@
 /**
- * @file    flash_hal_stub.c
+ * @file    iap.h
  * @brief   
  *
  * DAPLink Interface Firmware
- * Copyright (c) 2009-2016, ARM Limited, All Rights Reserved
+ * Copyright (c) 2017-2017, ARM Limited, All Rights Reserved
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -19,29 +19,26 @@
  * limitations under the License.
  */
 
-#include "flash_hal.h"
 
-uint32_t Init(uint32_t adr, uint32_t clk, uint32_t fnc)
-{
-    return (1); // IAP not supported
-}
+#ifndef IAP_H
+#define IAP_H
 
-uint32_t UnInit(uint32_t fnc)
-{
-    return (1); // IAP not supported
-}
+#include<stdint.h>
 
-uint32_t EraseChip(void)
-{
-    return (1); // IAP not supported
-}
+#define CMD_SUCCESS 0
 
-uint32_t EraseSector(uint32_t adr)
-{
-    return (1); // IAP not supported
-}
+typedef struct {
+    uint32_t cmd;
+    uint32_t par[4];
+    uint32_t stat;
+    uint32_t res[4];
+} iap_operation_t;
 
-uint32_t ProgramPage(uint32_t adr, uint32_t sz, uint32_t *buf)
-{
-    return (1); // IAP not supported
-}
+extern iap_operation_t iap_op;
+
+void iap_lock(void);
+void iap_unlock(void);
+void iap_call(iap_operation_t* operation);
+void iap_reinvoke(void);
+
+#endif

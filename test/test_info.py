@@ -121,6 +121,10 @@ class TestInfo(object):
         self._add_entry(self.SUBTEST, test_info)
         return test_info
 
+    def attach_subtest(self, subtest):
+        assert isinstance(subtest, TestInfo)
+        self._add_entry(self.SUBTEST, subtest)
+
     def get_counts(self):
         """
         Return the number of events that occured
@@ -176,4 +180,4 @@ class TestInfoStub(TestInfo):
 
     @staticmethod
     def _print_msg(msg):
-        pass
+        print("%s" % (msg,))
