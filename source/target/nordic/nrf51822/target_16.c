@@ -35,3 +35,15 @@ target_cfg_t target_device = {
     .flash_algo     = (program_target_t *) &flash,
     .erase_reset    = 1,
 };
+
+// From section 8.2.2, Table 61 NVMC specifications:
+// t_eraseall = 22.3ms
+// t_write,flash = 46.3us (per 32-bit word)
+uint32_t target_chip_erase_time(uint32_t chipSize) {
+    return 10 + 23;
+}
+
+uint32_t target_chip_program_time(uint16_t blockSize) {
+    // 46.3us per word works out to ~3ms per 256-byte page
+    return 3 * (blockSize + 255) / 256;
+}
