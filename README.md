@@ -10,9 +10,7 @@ For more detailed usability information [see the users guide.](docs/USERS-GUIDE.
 ## WebUSB
 This fork/experimental branch adds a USB DFU interface that can be used to flash targets from the browser using [WebUSB](https://wicg.github.io/webusb/). The DFU interface can be used standalone with native tools like [dfu-util](http://dfu-util.sourceforge.net/).
 
-Whitelisted origins can access the DFU interface via WebUSB. Currently, only two demos can access the DFU interface.
-* https://devanlai.github.io/webdfu/dfu-util/ - a dfu-util-like utility
-* https://devanlai.github.io/webdfu/mbed-download/ - a demo to build and flash mbed programs
+This project was done as an experimental proof-of-concept that was a fun exploration, but is no longer necessary because DAPLink incorporates WebUSB support for CMSIS-DAP by multiple means, making it possible to access debug functionality in DAPLink directly from the browser.
 
 ### Limitations
 * This has only been tested on a limited selection of DAPLink hardware:
@@ -20,19 +18,3 @@ Whitelisted origins can access the DFU interface via WebUSB. Currently, only two
   * STM32F103RB interface chips, specifically the embedded STLink/v2-1 on the [Nucleo F103RB](http://www.st.com/en/evaluation-tools/nucleo-f103rb.html) board
 * This has only been tested on Linux and macOS - Windows will almost certainly require fiddling with [Zadig](http://zadig.akeo.ie/) to load an appropriate WinUSB/libusb driver for the DFU interface.
 * The DFU interface cannot be accessed by Chrome on Windows - Chrome's copy of libusb is missing upstream patches to handle control transfers to composite WinUSB devices more robustly.
-
-## Compatibility
-There are many ARM microcontroller-based Hardware Interface Circuits (HICs) that DAPLink interface firmware runs on. These can be found as standalone boards or as part of development kits. Known supported circuits are based on and IO compatible with:
-* Segger J-Link OB (Atmel SAM3U) - coming soon
-* Maxim Epsilon (MAX32550) - coming soon
-* [NXP OpenSDA](http://www.nxp.com/products/software-and-tools/run-time-software/kinetis-software-and-tools/ides-for-kinetis-mcus/opensda-serial-and-debug-adapter:OPENSDA)
-* [NXP Link based on LPC11U35 or LPC4322](https://www.lpcware.com/LPCXpressoBoards)
-
-## Releases
-There are many board builds (board = HIC + target combination) created from this repository. Quarterly releases will contain new features and bugfixes. Standalone bugfixes are released once reported, verified and fixed. Both quarterly and bugfix releases will result in the build number being incremented; however, standalone bugfix release builds may only be made for affected boards. Release notes and all release builds can be found under releases. **Products shipping with or compatible with this firmware should have instructions on how to upgrade and the most up to date release build on the product page.**
-
-## Contribute
-Look for an interesting feature or defect [under issues](https://github.com/mbedmicro/DAPLink/issues) or start a new thread to engage with the developers and maintainers. You must sign the [contributor agreement](https://developer.mbed.org/contributor_agreement/) before any contributions can be accepted.
-
-## Develop
-Information for setting up a development environment, running the tests or creating a release build [can be found in the developers guide.](docs/DEVELOPERS-GUIDE.md)
